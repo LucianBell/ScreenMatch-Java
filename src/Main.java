@@ -9,8 +9,7 @@ import java.util.ArrayList;
 public class Main {
 
     public static void main(String[] args) {
-        Movie myMovie = new Movie();
-        myMovie.setName("The Godfather");
+        Movie myMovie = new Movie("The Godfather");
         myMovie.setReleaseYear(1970);
         myMovie.setMinuteLength(210);
         System.out.println("Movie length (in minutes): " +  myMovie.getMinuteLength());
@@ -31,8 +30,7 @@ public class Main {
         mySeries.setMinutesPerEpisode(50);
         System.out.println("Series length (in minutes): " +  mySeries.getMinuteLength());
 
-        Movie differentMovie = new Movie();
-        differentMovie.setName("Top Gun Maverick");
+        Movie differentMovie = new Movie("Top Gun Maverick");
         differentMovie.setReleaseYear(2022);
         differentMovie.setMinuteLength(180);
 
@@ -55,7 +53,7 @@ public class Main {
         filter.filter(episode);
 
         //Variavel referencia é a da esquerda
-        var lucysMovie = new Movie();
+        var lucysMovie = new Movie("Man with a guitar");
         //A variavel var faz uma inferência do tipo declarado (new Movie, no exemplo acima)
         //Só funciona a partir da versão 10 do Java
         //O tipo da variável será inferido automaticamente pelo compilador com base no valor atribuído.
@@ -88,6 +86,8 @@ public class Main {
 
         //Aqui, ele vai usar o toString da classe dos objetos da array, no caso, movies. Comportamento esperado.
         System.out.println(movieArrayList);
+
+        lucysMovie.toString();
     }
 
 }

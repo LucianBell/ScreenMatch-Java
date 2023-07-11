@@ -5,6 +5,10 @@ import br.com.alura.screenmatch.calculator.Classifiable;
 public class Movie extends Title implements Classifiable {
     private String director;
 
+    public Movie(String name) {
+        this.setName(name);
+    }
+
     public String getDirector() {
         return director;
     }
