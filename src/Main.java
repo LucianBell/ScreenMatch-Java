@@ -4,6 +4,8 @@ import br.com.alura.screenmatch.model.Episodes;
 import br.com.alura.screenmatch.model.Movie;
 import br.com.alura.screenmatch.model.Series;
 
+import java.util.ArrayList;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -51,6 +53,25 @@ public class Main {
         episode.setViewTotal(300);
 
         filter.filter(episode);
+
+        //Variavel referencia é a da esquerda
+        var lucysMovie = new Movie();
+        //A variavel var faz uma inferência do tipo declarado (new Movie, no exemplo acima)
+
+        lucysMovie.setMinuteLength(200);
+        lucysMovie.setName("Man with a guitar");
+        lucysMovie.setReleaseYear(1970);
+        lucysMovie.recieveAvaliation(10);
+
+        //ArrayList<tipo dos objetos que serão armazenados na array>
+        ArrayList<Movie> movieArrayList = new ArrayList<>();
+
+        movieArrayList.add(lucysMovie);
+        movieArrayList.add(myMovie);
+        movieArrayList.add(differentMovie);
+
+        System.out.println("Array list size: " + movieArrayList.size());
+        System.out.println("First movies name: " + movieArrayList.get(0).getName());
     }
 
 }
