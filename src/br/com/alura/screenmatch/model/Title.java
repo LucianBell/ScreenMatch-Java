@@ -61,4 +61,5 @@ public class Title {
     public double giveAvaliationResult() {
         return sumOfAvaliations / avaliationsTotal;
     }
+
 }
