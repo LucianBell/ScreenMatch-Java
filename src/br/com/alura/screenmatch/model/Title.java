@@ -8,6 +8,13 @@ public class Title {
     private int avaliationsTotal;
     private int minuteLength;
 
+    public Title(String name, int releaseYear) {
+        this.name = name;
+        this.releaseYear = releaseYear;
+    }
+    /*Construtores são usados para popular um objeto e trazer para ele informações vitais.*/
+    //Muito usados para se defender e para otimizar o uso de memória. É uma discussão de business.
+
     public int getAvaliationsTotal () {
         return avaliationsTotal;
     }
