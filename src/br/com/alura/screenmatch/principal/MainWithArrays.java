@@ -5,6 +5,7 @@ import br.com.alura.screenmatch.model.Series;
 import br.com.alura.screenmatch.model.Title;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class MainWithArrays {
     public static void main(String[] args) {
@@ -41,6 +42,20 @@ public class MainWithArrays {
                 System.out.println("Classificação: " + movie.getClassification());
             }
         }
+
+        ArrayList<String> searchByArtist = new ArrayList<>();
+        searchByArtist.add("Adam Sandler");
+        searchByArtist.add("Loyd Barret");
+        searchByArtist.add("Krech Bechinham");
+
+        System.out.println(searchByArtist);
+        Collections.sort(searchByArtist);
+        System.out.println("Depois da ordenação...");
+        System.out.println(searchByArtist);
+
+        Collections.sort(movieList);
+        System.out.println("Lista de títulos ordenados:s");
+        System.out.println(movieList);
     }
 
 }
