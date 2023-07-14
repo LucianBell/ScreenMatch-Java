@@ -6,6 +6,7 @@ import br.com.alura.screenmatch.model.Title;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 
 public class MainWithArrays {
     public static void main(String[] args) {
@@ -54,8 +55,12 @@ public class MainWithArrays {
         System.out.println(searchByArtist);
 
         Collections.sort(movieList);
-        System.out.println("Lista de títulos ordenados:s");
+        System.out.println("Lista de títulos ordenados:");
+        System.out.println(movieList);
+
+        //Sort é um COMPARATOR, ele SABE comparar e pede qual a maneira de comparar
+        movieList.sort(Comparator.comparing(Title::getReleaseYear));
+        System.out.println("Lista odenada por ano de lançamento:");
         System.out.println(movieList);
     }
-
 }
