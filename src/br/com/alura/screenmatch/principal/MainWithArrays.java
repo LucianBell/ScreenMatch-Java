@@ -4,9 +4,7 @@ import br.com.alura.screenmatch.model.Movie;
 import br.com.alura.screenmatch.model.Series;
 import br.com.alura.screenmatch.model.Title;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
+import java.util.*;
 
 public class MainWithArrays {
     public static void main(String[] args) {
@@ -18,7 +16,10 @@ public class MainWithArrays {
         lucysMovie.recieveAvaliation(10);
         Series mySeries = new Series("Lost", 2000);
         mySeries.recieveAvaliation(6);
-        ArrayList<Title> movieList = new ArrayList<>();
+        //Quando falamos de listas e collections, o melhor é se referir de maneira generica. Tratar tudo como list.
+        //Assim, você coloca List, e depois instancia colocando new e a classe específica que implementa list
+        //no caso, LinedList.
+        List<Title> movieList = new LinkedList<>();
 
         //Isso NÃO está criando um novo objeto ou copiando um objeto já existente. Quando falamos de objetos de classe
         //em Java, fazer isso é REFERENCIAR um objeto de classe já existente na memória.
