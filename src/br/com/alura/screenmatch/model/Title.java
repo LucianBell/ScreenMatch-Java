@@ -24,7 +24,7 @@ public class Title implements Comparable<Title> {
         }
 
         this.releaseYear = Integer.valueOf(meuTituloOmdb.year());
-        this.minuteLength = Integer.valueOf(meuTituloOmdb.runtime().substring(0, 3));
+        this.minuteLength = Integer.valueOf(meuTituloOmdb.runtime().substring(0, 2));
     }
     /*Construtores são usados para popular um objeto e trazer para ele informações vitais.*/
     //Muito usados para se defender e para otimizar o uso de memória. É uma discussão de business.
@@ -90,6 +90,6 @@ public class Title implements Comparable<Title> {
 
     @Override
     public String toString() {
-        return "name ='" + name + '\'' + ", releaseYear = " + releaseYear + "," + " minuteLength = " + minuteLength;
+        return "(name ='" + name + '\'' + ", releaseYear = " + releaseYear + "," + " minuteLength = " + minuteLength + ") ";
     }
 }
