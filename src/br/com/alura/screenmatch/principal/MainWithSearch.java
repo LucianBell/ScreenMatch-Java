@@ -1,11 +1,13 @@
 package br.com.alura.screenmatch.principal;
 
+import br.com.alura.screenmatch.exception.ErroDeConversaoDeAnoException;
 import br.com.alura.screenmatch.model.Title;
 import br.com.alura.screenmatch.model.TitleOmdb;
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -19,7 +21,7 @@ public class MainWithSearch {
         System.out.println("Digite um filme para busca: ");
         var busca = leitura.nextLine();
 
-        String adress = "http://www.omdbapi.com/?t=" + busca + "&apikey=7ef332a9";
+        String adress = "http://www.omdbapi.com/?t=" + busca.replace(" ", "+") + "&apikey=7ef332a9";
 
         try {
             HttpClient client = HttpClient.newHttpClient();
@@ -38,11 +40,18 @@ public class MainWithSearch {
             Title meuTitulo = new Title(meuTituloOmdb);
             System.out.println("Titulo já convertido");
             System.out.println(meuTitulo);
+
+            FileWriter escrita = new FileWriter("filmes.txt");
+            escrita.write(meuTitulo.toString());
+            escrita.close();
         } catch (NumberFormatException e) {
             System.out.println("Error:");
             System.out.println(e.getMessage());
         } catch (IllegalArgumentException e) {
             System.out.println("Argument error:");
+            System.out.println(e.getMessage());
+        } catch (ErroDeConversaoDeAnoException e) {
+            System.out.println("Error:");
             System.out.println(e.getMessage());
         }
 

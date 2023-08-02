@@ -1,11 +1,10 @@
 package br.com.alura.screenmatch.model;
 
+import br.com.alura.screenmatch.exception.ErroDeConversaoDeAnoException;
 import com.google.gson.annotations.SerializedName;
 
-public class Title implements Comparable<Title>{
-    @SerializedName("Title")
+public class Title implements Comparable<Title> {
     private String name;
-    @SerializedName("Year")
     private int releaseYear;
     private boolean includedInThePlan;
     private double sumOfAvaliations;
@@ -19,13 +18,18 @@ public class Title implements Comparable<Title>{
 
     public Title(TitleOmdb meuTituloOmdb) {
         this.name = meuTituloOmdb.title();
+
+        if (meuTituloOmdb.year().length() > 4) {
+            throw new ErroDeConversaoDeAnoException("Não conseguiu converter o ano, pois tem mais de 4 caracteres");
+        }
+
         this.releaseYear = Integer.valueOf(meuTituloOmdb.year());
-        this.minuteLength = Integer.valueOf(meuTituloOmdb.runtime().substring(0,2));
+        this.minuteLength = Integer.valueOf(meuTituloOmdb.runtime().substring(0, 3));
     }
     /*Construtores são usados para popular um objeto e trazer para ele informações vitais.*/
     //Muito usados para se defender e para otimizar o uso de memória. É uma discussão de business.
 
-    public int getAvaliationsTotal () {
+    public int getAvaliationsTotal() {
         return avaliationsTotal;
     }
 
