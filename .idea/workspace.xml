@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ca8f2527-1433-4552-a334-1e7e78c750c5" name="Changes" comment="Adding classification system and interfaces">
-      <change afterPath="$PROJECT_DIR$/src/br/com/alura/screenmatch/model/TitleOmdb.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/br/com/alura/screenmatch/model/Title.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/alura/screenmatch/model/Title.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/br/com/alura/screenmatch/principal/MainWithSearch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/alura/screenmatch/principal/MainWithSearch.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

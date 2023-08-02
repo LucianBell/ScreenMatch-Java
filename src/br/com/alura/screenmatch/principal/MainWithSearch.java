@@ -21,21 +21,31 @@ public class MainWithSearch {
 
         String adress = "http://www.omdbapi.com/?t=" + busca + "&apikey=7ef332a9";
 
-        HttpClient client = HttpClient.newHttpClient();
-        HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create(adress))
-                .build();
+        try {
+            HttpClient client = HttpClient.newHttpClient();
+            HttpRequest request = HttpRequest.newBuilder()
+                    .uri(URI.create(adress))
+                    .build();
 
-        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
-        System.out.println(response.body());
-        String json = response.body();
+            HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+            System.out.println(response.body());
+            String json = response.body();
 
-        Gson gson = new GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE).create();
-        TitleOmdb meuTituloOmdb = gson.fromJson(json, TitleOmdb.class);
-        //System.out.println("Nome do titulo: " + meuTituloOmdb.getName());
-        System.out.println(meuTituloOmdb);
-        Title meuTitulo = new Title(meuTituloOmdb);
-        System.out.println("Titulo já convertido");
-        System.out.println(meuTitulo);
+            Gson gson = new GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE).create();
+            TitleOmdb meuTituloOmdb = gson.fromJson(json, TitleOmdb.class);
+            //System.out.println("Nome do titulo: " + meuTituloOmdb.getName());
+            System.out.println(meuTituloOmdb);
+            Title meuTitulo = new Title(meuTituloOmdb);
+            System.out.println("Titulo já convertido");
+            System.out.println(meuTitulo);
+        } catch (NumberFormatException e) {
+            System.out.println("Error:");
+            System.out.println(e.getMessage());
+        } catch (IllegalArgumentException e) {
+            System.out.println("Argument error:");
+            System.out.println(e.getMessage());
+        }
+
+        System.out.println("O programa finalizou corretamente");
     }
 }
